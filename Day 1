@@ -27,7 +27,7 @@ shreya@kali:~$ touch hello.sh
 shreya@kali:~$ vim hello.sh
 
 #! /bin/bash
-echo "Hello World !!"           // used in printing something in bash
+echo "Hello World !!"           # used in printing something in bash (THis is a comment)
 :wq!
 
 shreya@kali:~$ sudo chmod +x hello.sh  // Giving executable permission
@@ -35,5 +35,133 @@ shreya@kali:~$ ./hello.sh
 Hello World !!
 
 >> COMMENTS AND VARIABLES
+ Comments : Lines of code that are not executed  by our script but are used to know info about scriptst
+ Variables : Containers that stores data inside
+ 
+ Two types of variables:
+ System and user defined variables
+ 
+ System : Pre defined variables (capital cases)
+ User defined : Created by users
+ 
+ System defined variables ---->
+ 
+ shreya@kali:~$ echo $BASH
+/usr/bin/bash
+shreya@kali:~$ echo $HOME
+/home/shreya
+shreya@kali:~$ echo $PWD
+/home/shreya
 
+User defined variables --->
+
+vim hello.sh
+
+#! /bin/bash
+name=Shreya
+echo The name is $name
+
+shreya@kali:~$ ./hello.sh 
+The name is Shreya
+
+** Variable name shouldnt start with a number
+
+>> Read user input from terminal
+ 
+#! /bin/bash
+
+echo "Hey user ! Enter your name ..."
+read name
+echo Hello $name
+:wq!
+
+shreya@kali:~$ ./hello.sh 
+Hey user ! Enter your name ...
+Shreya    # User input
+Hello Shreya
+
+>> Taking multiple names as user input
+#! /bin/bash
+
+echo " Hey users ! Enter your respective names ..."
+read name1 name2 name3 name4
+echo Holllla $name1 $name2 $name3 $name4
+:wq!
+
+shreya@kali:~$ ./hello.sh 
+Hey users ! Enter your respective names ...
+Boni Anni Rony Rosy
+Holllla Boni Anni Rony Rosy
+
+>> To take input on the same line in terminal
+#! /bin/bash
+
+read -p 'username : ' user_var1
+read -p 'username2 : ' user_var2
+echo "username : $user_var1"
+echo "username2 : $user_var2"
+
+Output:
+shreya@kali:~$ ./hello.sh 
+username : Shreya
+username2 : Akash
+username : Shreya
+username2 : Akash
+
+>> To print something in silent mode that is the user input typed wont be shown on the terminal
+
+#! /bin/bash
+
+read -p 'username : ' user_var1
+read -sp 'password : ' user_pass # This user input will not show on the terminal 
+echo
+read -p 'username2 : ' user_var2
+read -sp 'password2 : ' user_pass2  # User input wont be shown(here s stands for silent)
+echo
+echo "username : $user_var1"
+echo "username2 : $user_var2"
+echo "password : $user_pass"
+echo "password2 : $user_pass2"
+
+OUTPUT:
+
+shreya@kali:~$ ./hello.sh 
+username : Shreya
+password :              // Input now showing but is stored in the variable user_pass
+username2 : Boni
+password2 :             // Input now showing but is stored in the variable user_pass2
+username : Shreya
+username2 : Boni
+password : Shreya
+password2 : Boni
+
+>> Allowing users to enter multiple inputs and save them inside an array :
+#! /bin/bash
+
+echo "Enter the names"
+read -a names   # a stands for array
+echo "The names are : ${names[0]}, ${names[1]}, ${names[2]}"
+
+OUTPUT:
+shreya@kali:~$ ./hello.sh 
+Enter the names
+Anni Boni Maa
+The names are : Anni, Boni, Maa
+
+>> If you only use read command:
+#! /bin/bash
+
+echo "Enter the names"
+read 
+echo "Name : $REPLY"   # REPLY is an OS defined variable
+
+OUTPUT:
+shreya@kali:~$ ./hello.sh 
+Enter the names
+Shreya, Akash, Tanusha  
+Name : Shreya, Akash, Tanusha
+
+
+
+ 
 
