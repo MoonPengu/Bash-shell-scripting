@@ -1,4 +1,4 @@
-Shells which my system can support:
+> Shells which my system can support:
 
 shreya@kali:~$ cat /etc/shells
 # /etc/shells: valid login shells
@@ -13,3 +13,27 @@ shreya@kali:~$ cat /etc/shells
 /usr/bin/zsh
 /usr/bin/tmux
 /usr/bin/screen
+
+sh - Borne shell
+bash - Borne again shell (standard GNU shell)
+
+> To see the location of bash shell
+
+shreya@kali:~$ which bash
+/usr/bin/bash
+
+> Now creating our first bash script
+shreya@kali:~$ touch hello.sh
+shreya@kali:~$ vim hello.sh
+
+#! /bin/bash
+echo "Hello World !!"           // used in printing something in bash
+:wq!
+
+shreya@kali:~$ sudo chmod +x hello.sh  // Giving executable permission
+shreya@kali:~$ ./hello.sh
+Hello World !!
+
+>> COMMENTS AND VARIABLES
+
+
